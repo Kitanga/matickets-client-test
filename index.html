@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaTickets</title>
+
+  <style>
+    body {
+      overflow: hidden;
+    }
+
+    #bg {
+      background: #0a0a0a;
+
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+
+      display: flex;
+      place-items: center;
+    }
+
+    #bg-inner {
+      --scale: 4;
+
+      background: radial-gradient(calc(25% * var(--scale)) calc(25% * var(--scale)) at 50% 0%, hsla(258, 99%, 39%, 0.34) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50% 100% at 50% 0%, rgba(90, 147, 252, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+
+      width: 400%;
+      height: 100%;
+      mask-image: radial-gradient(100% 100% at 50% 0%, #0A0A0A 0%, rgba(255, 255, 255, 0.5) 100%);
+      position: relative;
+    }
+
+    #bg-overlay {
+      position: absolute;
+      top: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      background-color: #0a0a0a;
+      z-index: 2;
+      opacity: 0.25;
+    }
+
+    #preloader {
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      /* display: none; */
+    }
+
+    #preloader-inner {
+      position: relative;
+    }
+
+    #preloader-inner svg {
+      transform: scale(1);
+      transition: transform .5s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script>
+    // window.onload
+  </script>
+
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
