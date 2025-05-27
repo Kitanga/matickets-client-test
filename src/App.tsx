@@ -3,6 +3,7 @@ import { getAuth, connectAuthEmulator, onAuthStateChanged, User, signInWithEmail
 import { useEffect, useState } from "react";
 import Events from "./components/Events";
 import { IS_DEV } from "./commons/constants";
+import Button from "./components/Button";
 
 const firebaseConfig = {
   "projectId": import.meta.env.VITE_FIREBASE_PROJECTID,
@@ -77,7 +78,7 @@ function App() {
                 });
               }} />
               {/* NOTE: Replace this button with whatever you want, just make sure to double check how I've implemented things here */}
-              <button className="bg-black text-white rounded-sm px-2 py-1 cursor-pointer" onClick={() => {
+              <Button onClick={() => {
                 signInWithEmailAndPassword(auth, signin_form.email, signin_form.password)
                   .then(authResp => {
                     // User is logged in
@@ -86,7 +87,7 @@ function App() {
                   .catch(err => {
                     console.error(err);
                   });
-              }}>Login</button>
+              }}>Login</Button>
             </div>
           </div>
         }
@@ -96,9 +97,9 @@ function App() {
           <div>
             Currently logged in: {user?.displayName}
             <br />
-            <button className="bg-black text-white rounded-sm px-2 py-1 cursor-pointer" onClick={() => {
+            <Button onClick={() => {
               signOut(auth);
-            }}>Logout</button>
+            }}>Logout</Button>
 
             <h2 className="mt-7">Events</h2>
             <Events />
